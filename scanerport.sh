@@ -14,7 +14,8 @@ cyanColour='\033[1;36m'
 function ctrl_c(){
     echo -e "\n\n${redColour}[!]${endColour} ${grayColour}Exiting...${endColour}\n"
     
-    tput cnorm;  exit 1 # unhiden cursor
+    #tput cnorm;  exit 1 # unhiden cursor
+    exit 1 # unhiden cursor
 }
 
 # Ctrl+c
@@ -28,14 +29,14 @@ function checkPort(){
     (exec 3<>/dev/tcp/$1/$2) 2>/dev/null
 
     if [ $? -eq 0 ]; then
-        echo -e "${cyanColour}[+]${endColour} ${grayColour}Host${endColour} ${blueColour}$1${endColour} ${grayColour}- Port${endColour} ${yellowColour}$2${endColour} ${greenColour}(OPEN)${endColour}"
+        echo -e "${cyanColour   }[+]${endColour} ${grayColour}Host${endColour} ${blueColour}$1${endColour} ${grayColour}- Port${endColour} ${yellowColour}$2${endColour} ${greenColour}(OPEN)${endColour}"
     fi  
 
     exec 3<&-
     exec 3>&-
 }
 
-tput civis # hidden cursor
+#tput civis # hidden cursor
 
 
 if [ $1 ]; then
@@ -47,4 +48,4 @@ else
 fi
 
 wait
-tput cnorm # unhiden cursor
+#tput cnorm # unhiden cursor
