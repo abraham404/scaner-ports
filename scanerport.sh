@@ -29,7 +29,7 @@ function checkPort(){
     (exec 3<>/dev/tcp/$1/$2) 2>/dev/null
 
     if [ $? -eq 0 ]; then
-        echo -e "${cyanColour   }[+]${endColour} ${grayColour}Host${endColour} ${blueColour}$1${endColour} ${grayColour}- Port${endColour} ${yellowColour}$2${endColour} ${greenColour}(OPEN)${endColour}"
+        echo -e "${cyanColour}[+]${endColour} ${grayColour}Host${endColour} ${blueColour}$1${endColour} ${grayColour}- Port${endColour} ${yellowColour}$2${endColour} ${greenColour}(OPEN)${endColour}"
     fi  
 
     exec 3<&-
